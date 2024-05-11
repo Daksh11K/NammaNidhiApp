@@ -92,6 +92,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AdditionalDetails',
           path: '/additionalDetails',
           builder: (context, params) => const AdditionalDetailsWidget(),
+        ),
+        FFRoute(
+          name: 'HomeB',
+          path: '/homeB',
+          builder: (context, params) => const HomeBWidget(),
+        ),
+        FFRoute(
+          name: 'Borrowers',
+          path: '/borrowers',
+          builder: (context, params) => const BorrowersWidget(),
+        ),
+        FFRoute(
+          name: 'Details',
+          path: '/details',
+          builder: (context, params) => const DetailsWidget(),
+        ),
+        FFRoute(
+          name: 'ManagerProfile',
+          path: '/managerProfile',
+          builder: (context, params) => const ManagerProfileWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

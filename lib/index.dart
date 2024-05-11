@@ -12,3 +12,8 @@ export '/auth/landing_page_view/landing_page_view_widget.dart'
     show LandingPageViewWidget;
 export '/auth/additional_details/additional_details_widget.dart'
     show AdditionalDetailsWidget;
+export '/bank/home_b/home_b_widget.dart' show HomeBWidget;
+export '/bank/borrowers/borrowers_widget.dart' show BorrowersWidget;
+export '/bank/details/details_widget.dart' show DetailsWidget;
+export '/bank/manager_profile/manager_profile_widget.dart'
+    show ManagerProfileWidget;

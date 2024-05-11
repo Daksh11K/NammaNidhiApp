@@ -46,7 +46,7 @@ class _ApplyWidgetState extends State<ApplyWidget> {
           backgroundColor: FlutterFlowTheme.of(context).accent4,
           automaticallyImplyLeading: false,
           title: Text(
-            'Apply',
+            'Apply Loan',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -143,7 +143,7 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Text(
-                    'Ensure that you have required KYC documents, Balance sheet of past 3 FY, and sanction letter (if applicable)',
+                    'Ensure that you have required KYC documents, Balance sheet of past 3 FY, and bank statements available',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Readex Pro',
                           letterSpacing: 0.0,
