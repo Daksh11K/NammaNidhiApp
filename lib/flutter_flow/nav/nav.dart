@@ -53,12 +53,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const SignUpScreenWidget(),
         ),
         FFRoute(
-          name: 'Sme',
-          path: '/sme',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Sme') : const SmeWidget(),
-        ),
-        FFRoute(
           name: 'Home',
           path: '/home',
           builder: (context, params) =>
@@ -82,6 +76,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/apply',
           builder: (context, params) =>
               params.isEmpty ? const NavBarPage(initialPage: 'Apply') : const ApplyWidget(),
+        ),
+        FFRoute(
+          name: 'Sme',
+          path: '/sme',
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Sme') : const SmeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

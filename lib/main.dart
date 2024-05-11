@@ -85,7 +85,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Sme';
+  String _currentPageName = 'Home';
   late Widget? _currentPage;
 
   @override
@@ -98,11 +98,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'Sme': const SmeWidget(),
       'Home': const HomeWidget(),
-      'Profile': const ProfileWidget(),
-      'Chat': const ChatWidget(),
+      'Sme': const SmeWidget(),
       'Apply': const ApplyWidget(),
+      'Chat': const ChatWidget(),
+      'Profile': const ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -137,21 +137,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  currentIndex == 0 ? Icons.home_rounded : Icons.home_rounded,
                   color: currentIndex == 0
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 0
-                        ? const Color(0xFF053E67)
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
+                  size: currentIndex == 0 ? 34.0 : 24.0,
                 ),
               ],
             ),
@@ -161,7 +151,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 1 ? Icons.home_rounded : Icons.home_rounded,
+                  currentIndex == 1 ? Icons.sort_rounded : Icons.sort,
                   color: currentIndex == 1
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -175,7 +165,9 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 2 ? Icons.person : Icons.person_sharp,
+                  currentIndex == 2
+                      ? FontAwesomeIcons.landmark
+                      : FontAwesomeIcons.landmark,
                   color: currentIndex == 2
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
@@ -203,9 +195,7 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 4
-                      ? FontAwesomeIcons.landmark
-                      : FontAwesomeIcons.landmark,
+                  currentIndex == 4 ? Icons.person : Icons.person_sharp,
                   color: currentIndex == 4
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
