@@ -225,8 +225,8 @@ class _LogInScreenWidgetState extends State<LogInScreenWidget> {
                       ),
                     ),
                     FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.pushNamed('Home');
                       },
                       text: 'Log In',
                       options: FFButtonOptions(
