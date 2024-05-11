@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -50,6 +51,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SignUpScreen',
           path: '/signUpScreen',
           builder: (context, params) => const SignUpScreenWidget(),
+        ),
+        FFRoute(
+          name: 'Profile',
+          path: '/profile',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Profile')
+              : const ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'Chat',
+          path: '/chat',
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Chat') : const ChatWidget(),
+        ),
+        FFRoute(
+          name: 'Sme',
+          path: '/sme',
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Sme') : const SmeWidget(),
+        ),
+        FFRoute(
+          name: 'Apply',
+          path: '/apply',
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Apply') : const ApplyWidget(),
+        ),
+        FFRoute(
+          name: 'Home',
+          path: '/home',
+          builder: (context, params) =>
+              params.isEmpty ? const NavBarPage(initialPage: 'Home') : const HomeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
