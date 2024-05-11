@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -84,7 +85,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'Home';
+  String _currentPageName = 'Sme';
   late Widget? _currentPage;
 
   @override
@@ -97,10 +98,10 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'Sme': const SmeWidget(),
       'Home': const HomeWidget(),
       'Profile': const ProfileWidget(),
       'Chat': const ChatWidget(),
-      'Sme': const SmeWidget(),
       'Apply': const ApplyWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -136,11 +137,21 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 0 ? Icons.home_rounded : Icons.home_rounded,
+                  Icons.home_outlined,
                   color: currentIndex == 0
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: currentIndex == 0 ? 34.0 : 24.0,
+                  size: 24.0,
+                ),
+                Text(
+                  'Home',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 0
+                        ? const Color(0xFF053E67)
+                        : FlutterFlowTheme.of(context).secondaryText,
+                    fontSize: 11.0,
+                  ),
                 ),
               ],
             ),
@@ -150,21 +161,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  currentIndex == 1 ? Icons.home_rounded : Icons.home_rounded,
                   color: currentIndex == 1
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 1
-                        ? const Color(0xFF053E67)
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
+                  size: currentIndex == 1 ? 34.0 : 24.0,
                 ),
               ],
             ),
@@ -174,21 +175,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  currentIndex == 2 ? Icons.person : Icons.person_sharp,
                   color: currentIndex == 2
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 2
-                        ? const Color(0xFF053E67)
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
+                  size: currentIndex == 2 ? 34.0 : 24.0,
                 ),
               ],
             ),
@@ -198,21 +189,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  currentIndex == 3 ? Icons.chat_bubble : Icons.chat_bubble,
                   color: currentIndex == 3
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 3
-                        ? const Color(0xFF053E67)
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
+                  size: currentIndex == 3 ? 34.0 : 24.0,
                 ),
               ],
             ),
@@ -222,21 +203,13 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  currentIndex == 4
+                      ? FontAwesomeIcons.landmark
+                      : FontAwesomeIcons.landmark,
                   color: currentIndex == 4
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
-                  size: 24.0,
-                ),
-                Text(
-                  'Home',
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: currentIndex == 4
-                        ? const Color(0xFF053E67)
-                        : FlutterFlowTheme.of(context).secondaryText,
-                    fontSize: 11.0,
-                  ),
+                  size: currentIndex == 4 ? 34.0 : 24.0,
                 ),
               ],
             ),
