@@ -1,34 +1,33 @@
-import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'sign_up_screen_model.dart';
-export 'sign_up_screen_model.dart';
+import 'additional_details_model.dart';
+export 'additional_details_model.dart';
 
-class SignUpScreenWidget extends StatefulWidget {
-  const SignUpScreenWidget({super.key});
+class AdditionalDetailsWidget extends StatefulWidget {
+  const AdditionalDetailsWidget({super.key});
 
   @override
-  State<SignUpScreenWidget> createState() => _SignUpScreenWidgetState();
+  State<AdditionalDetailsWidget> createState() =>
+      _AdditionalDetailsWidgetState();
 }
 
-class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
-  late SignUpScreenModel _model;
+class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
+  late AdditionalDetailsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => SignUpScreenModel());
+    _model = createModel(context, () => AdditionalDetailsModel());
 
-    _model.usernameTextController ??= TextEditingController();
-    _model.usernameFocusNode ??= FocusNode();
+    _model.gstinTextController ??= TextEditingController();
+    _model.gstinFocusNode ??= FocusNode();
 
-    _model.signInMailTextController ??= TextEditingController();
-    _model.signInMailFocusNode ??= FocusNode();
+    _model.pANCardTextController ??= TextEditingController();
+    _model.pANCardFocusNode ??= FocusNode();
 
     _model.signInPwdTextController ??= TextEditingController();
     _model.signInPwdFocusNode ??= FocusNode();
@@ -52,9 +51,11 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
         backgroundColor: FlutterFlowTheme.of(context).alternate,
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).accent4,
-          automaticallyImplyLeading: false,
+          iconTheme:
+              IconThemeData(color: FlutterFlowTheme.of(context).primaryText),
+          automaticallyImplyLeading: true,
           title: Text(
-            'Sign Up',
+            'Additional Details',
             style: FlutterFlowTheme.of(context).bodyMedium.override(
                   fontFamily: 'Readex Pro',
                   color: FlutterFlowTheme.of(context).primaryText,
@@ -83,13 +84,13 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.9,
                       child: TextFormField(
-                        controller: _model.usernameTextController,
-                        focusNode: _model.usernameFocusNode,
+                        controller: _model.gstinTextController,
+                        focusNode: _model.gstinFocusNode,
                         autofocus: false,
                         textInputAction: TextInputAction.done,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Full Name',
+                          labelText: 'GSTIN Number',
                           labelStyle: FlutterFlowTheme.of(context)
                               .labelMedium
                               .override(
@@ -97,7 +98,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
-                          hintText: 'Enter Full Name',
+                          hintText: 'Enter GSTIN Number',
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
@@ -138,15 +139,15 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                               fontFamily: 'Readex Pro',
                               letterSpacing: 0.0,
                             ),
-                        validator: _model.usernameTextControllerValidator
+                        validator: _model.gstinTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
                     SizedBox(
                       width: MediaQuery.sizeOf(context).width * 0.9,
                       child: TextFormField(
-                        controller: _model.signInMailTextController,
-                        focusNode: _model.signInMailFocusNode,
+                        controller: _model.pANCardTextController,
+                        focusNode: _model.pANCardFocusNode,
                         onFieldSubmitted: (_) async {
                           if (_model.formKey.currentState == null ||
                               !_model.formKey.currentState!.validate()) {
@@ -157,7 +158,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                         textInputAction: TextInputAction.done,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Email',
+                          labelText: 'Business PAN Card',
                           labelStyle: FlutterFlowTheme.of(context)
                               .labelMedium
                               .override(
@@ -165,7 +166,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 letterSpacing: 0.0,
                               ),
-                          hintText: 'Enter Email',
+                          hintText: 'Enter Business PAN Card',
                           hintStyle:
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Readex Pro',
@@ -206,7 +207,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                               fontFamily: 'Readex Pro',
                               letterSpacing: 0.0,
                             ),
-                        validator: _model.signInMailTextControllerValidator
+                        validator: _model.pANCardTextControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -293,54 +294,11 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                             .asValidator(context),
                       ),
                     ),
-                    Container(
-                      decoration: const BoxDecoration(),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Select your prupose',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          FlutterFlowRadioButton(
-                            options: ['SME', 'Bank/NDFC'].toList(),
-                            onChanged: (val) => setState(() {}),
-                            controller: _model.radioButtonValueController ??=
-                                FormFieldController<String>('SME'),
-                            optionHeight: 40.0,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Readex Pro',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 24.0,
-                                  letterSpacing: 0.0,
-                                ),
-                            buttonPosition: RadioButtonPosition.left,
-                            direction: Axis.vertical,
-                            radioButtonColor:
-                                FlutterFlowTheme.of(context).primaryText,
-                            inactiveRadioButtonColor:
-                                FlutterFlowTheme.of(context).secondaryText,
-                            toggleable: true,
-                            horizontalAlignment: WrapAlignment.start,
-                            verticalAlignment: WrapCrossAlignment.start,
-                          ),
-                        ].divide(const SizedBox(height: 10.0)),
-                      ),
-                    ),
                     FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('AdditionalDetails');
+                        context.pushNamed('Home');
                       },
-                      text: 'Continue',
+                      text: 'Sign Up',
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 0.7,
                         height: 40.0,
@@ -387,7 +345,7 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      context.goNamed(
+                      context.pushNamed(
                         'LogInScreen',
                         extra: <String, dynamic>{
                           kTransitionInfoKey: const TransitionInfo(
@@ -411,7 +369,9 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                   ),
                 ],
               ),
-            ].divide(const SizedBox(height: 50.0)).around(const SizedBox(height: 50.0)),
+            ]
+                .divide(const SizedBox(height: 50.0))
+                .addToStart(const SizedBox(height: 165.0)),
           ),
         ),
       ),

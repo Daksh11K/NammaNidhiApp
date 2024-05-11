@@ -82,6 +82,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/sme',
           builder: (context, params) =>
               params.isEmpty ? const NavBarPage(initialPage: 'Sme') : const SmeWidget(),
+        ),
+        FFRoute(
+          name: 'LandingPageView',
+          path: '/landingPageView',
+          builder: (context, params) => const LandingPageViewWidget(),
+        ),
+        FFRoute(
+          name: 'AdditionalDetails',
+          path: '/additionalDetails',
+          builder: (context, params) => const AdditionalDetailsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -8,3 +8,7 @@ export '/sme/main_screen/profile/profile_widget.dart' show ProfileWidget;
 export '/sme/main_screen/chat/chat_widget.dart' show ChatWidget;
 export '/sme/main_screen/apply/apply_widget.dart' show ApplyWidget;
 export '/sme/main_screen/sme/sme_widget.dart' show SmeWidget;
+export '/auth/landing_page_view/landing_page_view_widget.dart'
+    show LandingPageViewWidget;
+export '/auth/additional_details/additional_details_widget.dart'
+    show AdditionalDetailsWidget;
