@@ -17,3 +17,11 @@ export '/bank/borrowers/borrowers_widget.dart' show BorrowersWidget;
 export '/bank/details/details_widget.dart' show DetailsWidget;
 export '/bank/manager_profile/manager_profile_widget.dart'
     show ManagerProfileWidget;
+export '/sme/main_screen/application/additional_info/additional_info_widget.dart'
+    show AdditionalInfoWidget;
+export '/sme/main_screen/application/business_info/business_info_widget.dart'
+    show BusinessInfoWidget;
+export '/sme/main_screen/application/financial_info/financial_info_widget.dart'
+    show FinancialInfoWidget;
+export '/sme/main_screen/application/loan_info/loan_info_widget.dart'
+    show LoanInfoWidget;
