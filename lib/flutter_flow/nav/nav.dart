@@ -40,6 +40,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePage',
           path: '/homePage',
           builder: (context, params) => const HomePageWidget(),
+        ),
+        FFRoute(
+          name: 'LogInScreen',
+          path: '/logInScreen',
+          builder: (context, params) => const LogInScreenWidget(),
+        ),
+        FFRoute(
+          name: 'SignUpScreen',
+          path: '/signUpScreen',
+          builder: (context, params) => const SignUpScreenWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
