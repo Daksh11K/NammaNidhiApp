@@ -30,9 +30,9 @@ dependencies:
   cached_network_image: 3.3.1
   carousel_slider: 4.2.1
   collection: 1.18.0
-  data_table_2: 2.5.10
   dropdown_button2: 2.3.9
   file_picker: 6.1.1
+  fl_chart: 0.55.0
   floating_bottom_navigation_bar: 1.5.2
   flutter_animate: 4.1.1+1
   flutter_cache_manager: 3.3.1

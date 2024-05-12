@@ -500,7 +500,7 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('AdditionalDetails');
+                          context.pushNamed('AdditionalInfo');
                         },
                         text: 'Next',
                         options: FFButtonOptions(

@@ -119,14 +119,14 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -187,14 +187,14 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -255,14 +255,14 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),

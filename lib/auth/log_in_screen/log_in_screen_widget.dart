@@ -119,14 +119,14 @@ class _LogInScreenWidgetState extends State<LogInScreenWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -186,14 +186,14 @@ class _LogInScreenWidgetState extends State<LogInScreenWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -226,7 +226,7 @@ class _LogInScreenWidgetState extends State<LogInScreenWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('Home');
+                        context.goNamed('HomeB');
                       },
                       text: 'Log In',
                       options: FFButtonOptions(

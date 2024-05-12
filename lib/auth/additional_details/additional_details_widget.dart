@@ -296,7 +296,7 @@ class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('Home');
+                        context.goNamed('Home');
                       },
                       text: 'Sign Up',
                       options: FFButtonOptions(
