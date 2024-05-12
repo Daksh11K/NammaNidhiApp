@@ -1,9 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'financial_info_model.dart';
 export 'financial_info_model.dart';
 
@@ -14,10 +16,13 @@ class FinancialInfoWidget extends StatefulWidget {
   State<FinancialInfoWidget> createState() => _FinancialInfoWidgetState();
 }
 
-class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
+class _FinancialInfoWidgetState extends State<FinancialInfoWidget>
+    with TickerProviderStateMixin {
   late FinancialInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -29,6 +34,142 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
 
     _model.uanTextController2 ??= TextEditingController();
     _model.uanFocusNode2 ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          SaturateEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 400.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 6.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -132,7 +273,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation1']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -154,7 +296,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation2']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -176,13 +319,15 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation3']!),
                     ],
                   ),
                   Divider(
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primaryText,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['dividerOnPageLoadAnimation']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -194,7 +339,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -253,7 +399,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                           signed: true, decimal: true),
                       validator: _model.uanTextController1Validator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation1']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -312,7 +459,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                           signed: true, decimal: true),
                       validator: _model.uanTextController2Validator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation2']!),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -383,7 +531,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation1']!),
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -461,7 +610,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation2']!),
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -531,7 +681,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation3']!),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
@@ -563,7 +714,8 @@ class _FinancialInfoWidgetState extends State<FinancialInfoWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation']!),
                     ),
                   ),
                 ]

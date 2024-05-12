@@ -120,14 +120,14 @@ class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -188,14 +188,14 @@ class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -256,14 +256,14 @@ class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).error,
+                              color: FlutterFlowTheme.of(context).primaryText,
                               width: 2.0,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
@@ -296,7 +296,16 @@ class _AdditionalDetailsWidgetState extends State<AdditionalDetailsWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        context.goNamed('Home');
+                        context.goNamed(
+                          'Home',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 0),
+                            ),
+                          },
+                        );
                       },
                       text: 'Sign Up',
                       options: FFButtonOptions(

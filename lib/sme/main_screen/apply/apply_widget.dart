@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -5,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'apply_model.dart';
 export 'apply_model.dart';
 
@@ -15,15 +17,133 @@ class ApplyWidget extends StatefulWidget {
   State<ApplyWidget> createState() => _ApplyWidgetState();
 }
 
-class _ApplyWidgetState extends State<ApplyWidget> {
+class _ApplyWidgetState extends State<ApplyWidget>
+    with TickerProviderStateMixin {
   late ApplyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ApplyModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'carouselOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -116,7 +236,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation1']!),
                   ),
                   FFButtonWidget(
                     onPressed: () async {
@@ -144,7 +265,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['buttonOnPageLoadAnimation']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -154,7 +276,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                             fontFamily: 'Readex Pro',
                             letterSpacing: 0.0,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation2']!),
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -183,7 +306,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                                         MediaQuery.sizeOf(context).height * 0.2,
                                     fit: BoxFit.cover,
                                   ),
-                                ),
+                                ).animateOnPageLoad(
+                                    animationsMap['imageOnPageLoadAnimation']!),
                                 Text(
                                   'ICICI Bank',
                                   textAlign: TextAlign.start,
@@ -225,7 +349,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                               ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation1']!),
                         Container(
                           decoration: BoxDecoration(
                             color:
@@ -290,7 +415,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                               ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation2']!),
                         Container(
                           decoration: BoxDecoration(
                             color:
@@ -355,7 +481,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                               ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation3']!),
                         Container(
                           decoration: BoxDecoration(
                             color:
@@ -420,7 +547,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                               ].divide(const SizedBox(height: 15.0)),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['containerOnPageLoadAnimation4']!),
                       ],
                       carouselController: _model.carouselController ??=
                           CarouselController(),
@@ -441,7 +569,8 @@ class _ApplyWidgetState extends State<ApplyWidget> {
                             _model.carouselCurrentIndex = index,
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['carouselOnPageLoadAnimation']!),
                 ]
                     .divide(const SizedBox(height: 20.0))
                     .addToStart(const SizedBox(height: 45.0)),

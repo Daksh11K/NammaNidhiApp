@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+
+import 'auth/custom_auth/auth_util.dart';
+import 'auth/custom_auth/custom_auth_user_provider.dart';
+
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,6 +19,8 @@ void main() async {
   usePathUrlStrategy();
 
   await FlutterFlowTheme.initialize();
+
+  await authManager.initialize();
 
   runApp(const MyApp());
 }
@@ -33,6 +39,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
+  late Stream<NammaNidhiAuthUser> userStream;
+
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
 
@@ -42,6 +50,13 @@ class _MyAppState extends State<MyApp> {
 
     _appStateNotifier = AppStateNotifier.instance;
     _router = createRouter(_appStateNotifier);
+    userStream = nammaNidhiAuthUserStream()
+      ..listen((user) => _appStateNotifier.update(user));
+
+    Future.delayed(
+      const Duration(milliseconds: 1000),
+      () => _appStateNotifier.stopShowingSplashImage(),
+    );
   }
 
   void setThemeMode(ThemeMode mode) => setState(() {
@@ -101,7 +116,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'Home': const HomeWidget(),
       'Sme': const SmeWidget(),
       'Apply': const ApplyWidget(),
-      'Chat': const ChatWidget(),
       'Profile': const ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -181,25 +195,11 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  currentIndex == 3 ? Icons.chat_bubble : Icons.chat_bubble,
+                  currentIndex == 3 ? Icons.person : Icons.person_sharp,
                   color: currentIndex == 3
                       ? const Color(0xFF053E67)
                       : FlutterFlowTheme.of(context).secondaryText,
                   size: currentIndex == 3 ? 34.0 : 24.0,
-                ),
-              ],
-            ),
-          ),
-          FloatingNavbarItem(
-            customWidget: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  currentIndex == 4 ? Icons.person : Icons.person_sharp,
-                  color: currentIndex == 4
-                      ? const Color(0xFF053E67)
-                      : FlutterFlowTheme.of(context).secondaryText,
-                  size: currentIndex == 4 ? 34.0 : 24.0,
                 ),
               ],
             ),

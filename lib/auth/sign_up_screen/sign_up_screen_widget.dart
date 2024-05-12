@@ -338,7 +338,16 @@ class _SignUpScreenWidgetState extends State<SignUpScreenWidget> {
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('AdditionalDetails');
+                        context.pushNamed(
+                          'AdditionalDetails',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: const TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.rightToLeft,
+                              duration: Duration(milliseconds: 600),
+                            ),
+                          },
+                        );
                       },
                       text: 'Continue',
                       options: FFButtonOptions(

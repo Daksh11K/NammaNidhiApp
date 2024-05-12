@@ -34,10 +34,6 @@ class LogInScreenModel extends FlutterFlowModel<LogInScreenWidget> {
       return 'Field is required';
     }
 
-    if (val.length < 8) {
-      return 'Requires at least 8 characters.';
-    }
-
     return null;
   }
 

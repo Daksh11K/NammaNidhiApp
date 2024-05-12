@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'business_info_model.dart';
 export 'business_info_model.dart';
 
@@ -16,10 +18,13 @@ class BusinessInfoWidget extends StatefulWidget {
   State<BusinessInfoWidget> createState() => _BusinessInfoWidgetState();
 }
 
-class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
+class _BusinessInfoWidgetState extends State<BusinessInfoWidget>
+    with TickerProviderStateMixin {
   late BusinessInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -31,6 +36,153 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
 
     _model.industryTypeTextController ??= TextEditingController();
     _model.industryTypeFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          SaturateEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 400.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 900.0.ms,
+            duration: 800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -113,7 +265,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation1']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -135,7 +288,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation2']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -157,7 +311,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation3']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -179,13 +334,15 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation4']!),
                     ],
                   ),
                   Divider(
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primaryText,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['dividerOnPageLoadAnimation']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -197,7 +354,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -254,7 +412,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                           ),
                       validator: _model.uanTextControllerValidator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation1']!),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -325,7 +484,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation1']!),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                     child: TextFormField(
@@ -381,7 +541,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                           ),
                       validator: _model.industryTypeTextControllerValidator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation2']!),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -460,7 +621,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation2']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -495,7 +657,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                       isOverButton: true,
                       isSearchable: false,
                       isMultiSelect: false,
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['dropDownOnPageLoadAnimation']!),
                   ),
                   if (_model.ownershipValue == 'Partnership')
                     InkWell(
@@ -744,7 +907,8 @@ class _BusinessInfoWidgetState extends State<BusinessInfoWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation']!),
                     ),
                   ),
                 ]

@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/sme/main_screen/sme_info/sme_info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'borrowers_model.dart';
@@ -69,48 +69,6 @@ class _BorrowersWidgetState extends State<BorrowersWidget> {
                     padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
                     children: [
-                      SizedBox(
-                        width: MediaQuery.sizeOf(context).width * 0.9,
-                        height: MediaQuery.sizeOf(context).height * 0.2,
-                        child: FlutterFlowBarChart(
-                          barData: [
-                            FFBarChartData(
-                              yData: [],
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                            )
-                          ],
-                          xLabels: const [],
-                          barWidth: 16.0,
-                          barBorderRadius: BorderRadius.circular(8.0),
-                          groupSpace: 8.0,
-                          alignment: BarChartAlignment.spaceAround,
-                          chartStylingInfo: ChartStylingInfo(
-                            enableTooltip: true,
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).accent4,
-                            showBorder: false,
-                          ),
-                          axisBounds: const AxisBounds(),
-                          xAxisLabelInfo: const AxisLabelInfo(
-                            title: 'Nature of Ownership',
-                            titleTextStyle: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14.0,
-                            ),
-                            showLabels: true,
-                            labelTextStyle: TextStyle(),
-                            labelInterval: 10.0,
-                            reservedSize: 28.0,
-                          ),
-                          yAxisLabelInfo: const AxisLabelInfo(
-                            title: 'Frequency',
-                            titleTextStyle: TextStyle(
-                              fontSize: 14.0,
-                            ),
-                            reservedSize: 42.0,
-                          ),
-                        ),
-                      ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 0.0, 10.0, 0.0),
@@ -124,89 +82,119 @@ class _BorrowersWidgetState extends State<BorrowersWidget> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Prajein Pvt Ltd',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 22.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  useSafeArea: true,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const SmeInfoWidget(),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.6,
-                                        decoration: const BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '45M\$',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '3 yrs ago',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '697',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ],
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Prajein Pvt Ltd',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(height: 10.0)),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.6,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                '45M\$',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '3 yrs ago',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '697',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(height: 10.0)),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -224,89 +212,118 @@ class _BorrowersWidgetState extends State<BorrowersWidget> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Dhanush Pvt Ltd',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 22.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const SmeInfoWidget(),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.6,
-                                        decoration: const BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '25M\$',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '2 yrs ago',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '500',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ],
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Dhanush Pvt Ltd',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(height: 10.0)),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.6,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                '25M\$',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '2 yrs ago',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '500',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(height: 10.0)),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -324,89 +341,118 @@ class _BorrowersWidgetState extends State<BorrowersWidget> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Sivaram ',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 22.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const SmeInfoWidget(),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.6,
-                                        decoration: const BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '65M\$',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '1 yrs ago',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '777',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ],
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Sivaram ',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(height: 10.0)),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.6,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                '65M\$',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '1 yrs ago',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '777',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(height: 10.0)),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -424,89 +470,118 @@ class _BorrowersWidgetState extends State<BorrowersWidget> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Daksh',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              fontSize: 22.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: const SmeInfoWidget(),
                                       ),
-                                      Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.6,
-                                        decoration: const BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text(
-                                              '15M\$',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '1 yrs ago',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                            Text(
-                                              '750',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                            ),
-                                          ],
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 4.0, 0.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Daksh',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                         ),
-                                      ),
-                                    ].divide(const SizedBox(height: 10.0)),
+                                        Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.6,
+                                          decoration: const BoxDecoration(),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                '15M\$',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '1 yrs ago',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              Text(
+                                                '750',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ].divide(const SizedBox(height: 10.0)),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: Icon(
-                                    Icons.keyboard_arrow_right_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryText,
-                                    size: 24.0,
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Icon(
+                                      Icons.keyboard_arrow_right_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      size: 24.0,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),

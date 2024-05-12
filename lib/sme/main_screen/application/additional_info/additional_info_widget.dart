@@ -1,9 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'additional_info_model.dart';
 export 'additional_info_model.dart';
 
@@ -14,15 +16,93 @@ class AdditionalInfoWidget extends StatefulWidget {
   State<AdditionalInfoWidget> createState() => _AdditionalInfoWidgetState();
 }
 
-class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
+class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget>
+    with TickerProviderStateMixin {
   late AdditionalInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => AdditionalInfoModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          SaturateEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -168,13 +248,15 @@ class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation']!),
                     ],
                   ),
                   Divider(
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primaryText,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['dividerOnPageLoadAnimation']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -186,7 +268,8 @@ class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ),
                   InkWell(
                     splashColor: Colors.transparent,
@@ -264,7 +347,8 @@ class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation1']!),
                   InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -341,7 +425,8 @@ class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation2']!),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
@@ -414,7 +499,8 @@ class _AdditionalInfoWidgetState extends State<AdditionalInfoWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation']!),
                     ),
                   ),
                 ]

@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -5,6 +6,7 @@ import '/flutter_flow/upload_data.dart';
 import '/sme/main_screen/sme_info/sme_info_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'sme_model.dart';
 export 'sme_model.dart';
 
@@ -15,15 +17,176 @@ class SmeWidget extends StatefulWidget {
   State<SmeWidget> createState() => _SmeWidgetState();
 }
 
-class _SmeWidgetState extends State<SmeWidget> {
+class _SmeWidgetState extends State<SmeWidget> with TickerProviderStateMixin {
   late SmeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => SmeModel());
+
+    animationsMap.addAll({
+      'listTileOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'carouselOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'cardOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'cardOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'cardOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'cardOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 400.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 800.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -127,7 +290,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['listTileOnPageLoadAnimation']!),
                   SizedBox(
                     width: double.infinity,
                     height: 150.0,
@@ -145,7 +309,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 24.0,
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['cardOnPageLoadAnimation1']!),
                         Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           color: FlutterFlowTheme.of(context).accent1,
@@ -167,7 +332,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                                   ),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['cardOnPageLoadAnimation2']!),
                         Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           color: FlutterFlowTheme.of(context).accent2,
@@ -189,7 +355,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                                   ),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['cardOnPageLoadAnimation3']!),
                         Card(
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                           color: FlutterFlowTheme.of(context).accent3,
@@ -211,7 +378,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                                   ),
                             ),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['cardOnPageLoadAnimation4']!),
                       ],
                       carouselController: _model.carouselController ??=
                           CarouselController(),
@@ -232,7 +400,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                             _model.carouselCurrentIndex = index,
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['carouselOnPageLoadAnimation']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -319,7 +488,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation1']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -388,7 +558,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation2']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -475,7 +646,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation3']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -544,7 +716,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation4']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -630,7 +803,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation5']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -699,7 +873,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                         ),
                       ),
                     ],
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['rowOnPageLoadAnimation6']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -729,7 +904,8 @@ class _SmeWidgetState extends State<SmeWidget> {
                                 ),
                           ),
                         ].divide(const SizedBox(height: 5.0)),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation']!),
                       FFButtonWidget(
                         onPressed: () async {
                           final selectedFiles = await selectFiles(

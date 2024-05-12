@@ -5,7 +5,6 @@ export '/auth/sign_up_screen/sign_up_screen_widget.dart'
     show SignUpScreenWidget;
 export '/sme/main_screen/home/home_widget.dart' show HomeWidget;
 export '/sme/main_screen/profile/profile_widget.dart' show ProfileWidget;
-export '/sme/main_screen/chat/chat_widget.dart' show ChatWidget;
 export '/sme/main_screen/apply/apply_widget.dart' show ApplyWidget;
 export '/sme/main_screen/sme/sme_widget.dart' show SmeWidget;
 export '/auth/landing_page_view/landing_page_view_widget.dart'
@@ -19,7 +18,7 @@ export '/bank/manager_profile/manager_profile_widget.dart'
     show ManagerProfileWidget;
 export '/sme/main_screen/application/additional_info/additional_info_widget.dart'
     show AdditionalInfoWidget;
-export '/sme/main_screen/application/business_info/business_info_widget.dart'
+export '/sme/main_screen/business_info/business_info_widget.dart'
     show BusinessInfoWidget;
 export '/sme/main_screen/application/financial_info/financial_info_widget.dart'
     show FinancialInfoWidget;

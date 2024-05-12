@@ -74,7 +74,8 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 50.0, 0.0, 0.0),
                                 child: Text(
-                                  'Easy Loans',
+                                  'Auto Loan\nApproval',
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -89,7 +90,7 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 35.0, 0.0, 0.0),
                                 child: Text(
-                                  'description of easyl loan\nnext line \nthe line after that',
+                                  'Get your business booming with\n our app\'s lightning-fast,\n automatic loan approval process!',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -206,6 +207,7 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                     0.0, 50.0, 0.0, 0.0),
                                 child: Text(
                                   'Multiple Investors',
+                                  textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -220,7 +222,7 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 35.0, 0.0, 0.0),
                                 child: Text(
-                                  'Some flex about investors \nand the number of banks \nfalsely involved with us',
+                                  'We provide you a chance \ntop present yourself \nto reputed banks\nand top investors',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -335,7 +337,7 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 50.0, 0.0, 0.0),
                                 child: Text(
-                                  'Prajein',
+                                  'Fewer Steps',
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -350,7 +352,7 @@ class _LandingPageViewWidgetState extends State<LandingPageViewWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 35.0, 0.0, 0.0),
                                 child: Text(
-                                  'Hacken\nDhanush\nDaksh',
+                                  'Say goodbye to endless \npaperwork - our app \nsimplifies SME financing \nwith seamless, digital processes',
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

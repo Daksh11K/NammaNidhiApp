@@ -1,6 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'home_model.dart';
 export 'home_model.dart';
@@ -12,15 +14,32 @@ class HomeWidget extends StatefulWidget {
   State<HomeWidget> createState() => _HomeWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> {
+class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
   late HomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => HomeModel());
+
+    animationsMap.addAll({
+      'cardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(1.0, 1.0),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -261,7 +280,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       .around(const SizedBox(width: 10.0)),
                                 ),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['cardOnPageLoadAnimation']!),
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(

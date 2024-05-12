@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -6,6 +7,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'loan_info_model.dart';
 export 'loan_info_model.dart';
 
@@ -16,10 +18,13 @@ class LoanInfoWidget extends StatefulWidget {
   State<LoanInfoWidget> createState() => _LoanInfoWidgetState();
 }
 
-class _LoanInfoWidgetState extends State<LoanInfoWidget> {
+class _LoanInfoWidgetState extends State<LoanInfoWidget>
+    with TickerProviderStateMixin {
   late LoanInfoModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -34,6 +39,129 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
 
     _model.propseCollateralTextController ??= TextEditingController();
     _model.propseCollateralFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          SaturateEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'dividerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'dropDownOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(-400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listTileOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(400.0, 0.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 800.0.ms,
+            duration: 900.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -158,7 +286,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation1']!),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: MediaQuery.sizeOf(context).width * 0.15,
@@ -180,13 +309,15 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                                 ),
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['containerOnPageLoadAnimation2']!),
                     ],
                   ),
                   Divider(
                     thickness: 1.0,
                     color: FlutterFlowTheme.of(context).primaryText,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['dividerOnPageLoadAnimation']!),
                   Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
@@ -198,7 +329,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -257,7 +389,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           signed: true, decimal: true),
                       validator: _model.uanTextControllerValidator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation1']!),
                   ),
                   Padding(
                     padding:
@@ -302,7 +435,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                       isOverButton: true,
                       isSearchable: false,
                       isMultiSelect: false,
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['dropDownOnPageLoadAnimation']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -361,7 +495,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           const TextInputType.numberWithOptions(decimal: true),
                       validator: _model.repaymentPeriodTextControllerValidator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation2']!),
                   ),
                   Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
@@ -420,7 +555,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           const TextInputType.numberWithOptions(decimal: true),
                       validator: _model.propseCollateralTextControllerValidator
                           .asValidator(context),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textFieldOnPageLoadAnimation3']!),
                   ),
                   if (_model.propseCollateralTextController.text != '')
                     InkWell(
@@ -492,7 +628,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['listTileOnPageLoadAnimation']!),
                   Align(
                     alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
@@ -524,7 +661,8 @@ class _LoanInfoWidgetState extends State<LoanInfoWidget> {
                           ),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['buttonOnPageLoadAnimation']!),
                     ),
                   ),
                 ]

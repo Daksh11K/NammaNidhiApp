@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -13,15 +15,107 @@ class ProfileWidget extends StatefulWidget {
   State<ProfileWidget> createState() => _ProfileWidgetState();
 }
 
-class _ProfileWidgetState extends State<ProfileWidget> {
+class _ProfileWidgetState extends State<ProfileWidget>
+    with TickerProviderStateMixin {
   late ProfileModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfileModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 500.0.ms,
+            begin: const Offset(0.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(1.25, 1.25),
+            end: const Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -78,8 +172,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                             PageTransition(
                               type: PageTransitionType.fade,
                               child: FlutterFlowExpandedImageView(
-                                image: Image.network(
-                                  'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                                image: Image.asset(
+                                  'assets/images/Screenshot_2024-05-12_114324.png',
                                   fit: BoxFit.contain,
                                 ),
                                 allowRotation: false,
@@ -96,36 +190,38 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                       transitionOnUserGestures: true,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50.0),
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
+                        child: Image.asset(
+                          'assets/images/Screenshot_2024-05-12_114324.png',
                           width: 100.0,
                           height: 100.0,
                           fit: BoxFit.cover,
                         ),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
                 ),
                 Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 12.0),
                   child: Text(
-                    'David Jerome',
+                    'Dhanush TS',
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
                           fontFamily: 'Outfit',
                           color: FlutterFlowTheme.of(context).primaryText,
                           letterSpacing: 0.0,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation1']!),
                 ),
                 Text(
-                  'David.j@gmail.com',
+                  'tsdhanush@gmail.com',
                   style: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
                         color: FlutterFlowTheme.of(context).primaryText,
                         letterSpacing: 0.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
                 Padding(
                   padding:
                       const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 32.0),
@@ -170,7 +266,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation1']!),
                       ),
                       Expanded(
                         child: Padding(
@@ -212,7 +309,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['columnOnPageLoadAnimation2']!),
                         ),
                       ),
                       Expanded(
@@ -252,7 +350,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   ),
                             ),
                           ],
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['columnOnPageLoadAnimation3']!),
                       ),
                     ],
                   ),
@@ -668,7 +767,8 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                         ],
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation']!),
                 ),
               ].addToStart(const SizedBox(height: 15.0)),
             ),
